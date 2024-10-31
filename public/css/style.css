@@ -1,0 +1,543 @@
+/* ------------------------ FONTS ------------------------------- */
+/* ------------------------ FONTS ------------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;600;700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+/* ------------------------ CSS RESET -------------------------- */
+/* ------------------------------------------------------------- */
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Remove default margin */
+* {
+    margin: 0;
+    padding: 0;
+    font: inherit;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role="list"],
+ol[role="list"] {
+    list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+    scroll-behavior: smooth;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+/* Set core body defaults */
+body {
+    text-rendering: optimizeSpeed;
+    line-height: 1.5;
+    font-family: system-ui;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+    text-decoration-skip-ink: auto;
+}
+
+a,
+ul,
+ol {
+    text-decoration: none;
+    list-style: none;
+}
+
+/* Make images easier to work with */
+img,
+picture,
+svg {
+    max-width: 100%;
+    display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+
+
+/* Remove all animations and transitions for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+    html:focus-within {
+        scroll-behavior: auto;
+    }
+
+    /* *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    } */
+}
+
+/* -------------------- END CSS RESET -------------------------- */
+/* ------------------------------------------------------------- */
+
+/* -------------------------- ROOT CSS ------------------------ */
+/* -------------------------------------------------------------- */
+:root {
+    --ff-primary: "Poppins", sans-serif;
+
+    --font-size-2xs: 0.625rem;
+    --font-size-xs: 0.75rem;
+    --font-size-sm: 0.875rem;
+    --font-size-md: 1rem;
+    --font-size-lg: 1.125rem;
+    --font-size-xl: 1.25rem;
+    --font-size-2xl: 1.5rem;
+    --font-size-3xl: 1.75rem;
+    --font-size-4xl: 2rem;
+    --font-size-5xl: 2.25rem;
+    --font-size-6xl: 2.5rem;
+    --font-size-7xl: 3rem;
+    --font-size-8xl: 3.5rem;
+    --font-size-9xl: 4rem;
+    --font-size-10xl: 4.5rem;
+    --font-size-11xl: 5rem;
+    --font-size-12xl: 6rem;
+
+    --font-clr-primary: #212121;
+    --font-clr-secondary: #323232;
+    --font-clr-light: #f6f6f6;
+
+    --border-radius: 5px;
+
+    --btn-primary-color: ;
+    --btn-secondary-color: ;
+
+    --header-footer-clr: #EB8317;
+    /* --header-footer-clr: #859F3D; */
+
+    --max-width: 1000px;
+    --gradient: ;
+
+}
+
+body {
+    font-family: var(--ff-primary);
+    font-size: var(--font-size-md);
+    background-color: #f6f6f6;
+}
+
+.page__container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 15px;
+    margin-bottom: 4rem;
+    margin-top: 4rem;
+}
+
+section {
+    margin-top: 5rem;
+}
+
+.section__title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.btn {
+    padding: .4rem;
+    border-radius: var(--border-radius);
+    border: 2px solid var(--header-footer-clr);
+    color: var(--font-clr-primary);
+}
+
+.btn:active {
+    box-shadow: 0 0px 5px var(--header-footer-clr);
+}
+
+.btn.effect {
+    background-color: var(--header-footer-clr);
+    color: #f6f6f6;
+}
+
+/* -------------------------- ROOT CSS ------------------------ */
+/* -------------------------------------------------------------- */
+
+/* -------------------------- HEADER CSS ------------------------ */
+/* -------------------------------------------------------------- */
+
+.header {
+    background-color: var(--header-footer-clr);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 4rem;
+    padding: 0 10px;
+}
+
+.header__logo {
+    display: none;
+    font-weight: 700;
+    font-size: var(--font-size-2xl);
+}
+
+.header a {
+    color: var(--font-clr-light);
+}
+
+.search-bar {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.menu__button {
+    display: block;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px;
+    -webkit-transition: all 0.3s ease ease-in-out;
+    transition: all 0.3s ease ease-in-out;
+    background-color: #f6f6f6;
+}
+
+.menu__button.open .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.menu__button.open .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.menu__button.open .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+
+.search-bar form {
+    display: flex;
+    height: 1.8rem;
+    border: 1px solid black;
+}
+
+.search-bar input {
+    border: none;
+}
+
+.search-bar form input:focus {
+    outline: none;
+}
+
+.search-bar form button {
+    border: none;
+    cursor: pointer;
+}
+
+.search-bar form button i {
+    padding: 0 .4rem;
+}
+
+.search-bar img {
+    height: 1.5rem;
+}
+
+.nav__links .nav__list {
+    background-color: var(--header-footer-clr);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 1.25rem;
+    position: fixed;
+    left: -100%;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    transition: 0.3s;
+    font-size: var(--font-size-lg);
+    font-weight: 500;
+}
+
+.nav__links .nav__list.open {
+    left: 0%;
+}
+
+.nav__link:hover {
+    text-decoration: underline;
+    color: var(--font-clr-light);
+    text-underline-offset: 2px;
+}
+
+.search-bar input {
+    padding-left: 5px;
+}
+
+@media (width > 768px) {
+    .menu__button {
+        display: none;
+    }
+
+    .header {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .nav__links .nav__list {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+        background-color: transparent;
+        position: inherit;
+        height: auto;
+        padding: 0 2rem;
+    }
+
+    .header__logo {
+        display: block;
+        font-weight: 700;
+        font-size: var(--font-size-2xl);
+    }
+}
+
+/* -------------------------- HEADER CSS ------------------------ */
+/* -------------------------------------------------------------- */
+
+/* -------------------------- HOME CSS ------------------------ */
+/* -------------------------------------------------------------- */
+.home__container {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    /* padding-top: 4rem; */
+    gap: 1rem;
+}
+
+.hero__image {
+    justify-self: center;
+}
+
+.hero__image img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+    font-style: italic;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.hero__content {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.hero__content h1 {
+    /* font-size: var(--font-size-7xl); */
+    font-size: clamp(2rem, 1.615rem + 1.538vw, 3rem);
+    font-weight: 800;
+    color: var(--font-clr-primary);
+    text-align: center;
+    margin-bottom: -1rem;
+}
+
+.hero__content p {
+    /* font-size: var(--font-size-xl); */
+    font-size: clamp(1.125rem, 1.077rem + 0.192vw, 1.25rem);
+    font-weight: 600;
+    text-align: center;
+    color: var(--font-clr-secondary);
+}
+
+.hero__content .hero__buttons {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    gap: .6rem;
+}
+
+@media (width > 768px) {
+    .home__container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        /* padding-top: 4rem; */
+        gap: 4rem;
+    }
+
+    .hero__image {
+        grid-column: 2;
+
+    }
+
+    .hero__image img {
+        display: block;
+        max-width: 100%;
+        height: auto;
+        object-fit: cover;
+        font-style: italic;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .hero__content {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 4rem 0;
+    }
+
+    .hero__content h1 {
+        font-size: var(--font-size-7xl);
+        font-weight: 800;
+    }
+
+    .hero__content h1 {
+        text-align: start;
+    }
+
+    .hero__content p {
+        text-align: start;
+    }
+}
+
+/* -------------------------- HOME CSS ------------------------ */
+/* -------------------------------------------------------------- */
+
+/* -------------------------- HOME/CAT CSS ---------------------- */
+/* -------------------------------------------------------------- */
+.category__container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+/* CARD */
+.category__link {
+    text-align: center;
+    display: block;
+    text-decoration: none;
+    transition: 250ms all;
+}
+
+.category__link:hover {
+    transform: scale(1.05);
+}
+
+.category__image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 125px;
+    margin-bottom: 10px;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, .16);
+    overflow: hidden;
+    border-radius: var(--border-radius);
+}
+
+.category__image img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.category__link {
+    color: black;
+    font-weight: 600;
+}
+
+.category__link:hover {
+    color: blue;
+}
+
+/* -------------------------- HOME/CAT CSS ---------------------- */
+/* -------------------------------------------------------------- */
+
+/* -------------------------- HOME/Latest CSS ---------------------- */
+/* -------------------------------------------------------------- */
+.category__image--large {
+    height: 330px;
+}
+
+.section__title h2 {
+    /* font-size: var(--font-size-5xl); */
+    font-size: clamp(1.5rem, 1.212rem + 1.154vw, 2.25rem);
+    font-weight: 700;
+}
+
+.recipe__card__container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+/* -------------------------- HOME/LATEST CSS ---------------------- */
+/* -------------------------------------------------------------- */
+
+
+/* -------------------------- HOME/SUBMIT CSS ---------------------- */
+/* -------------------------------------------------------------- */
+
+.submit__container img {
+    margin-bottom: 4rem;
+}
+
+.submit__container .section__content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+}
+
+.submit__container .section__content .section__title {
+    font-size: clamp(1.5rem, 1.212rem + 1.154vw, 2.25rem);
+    font-weight: 700;
+    margin-bottom: 0rem;
+}
+
+.submit__container .section__content p {
+    
+}
+
+.recipe__submit__btn:hover {
+    background-color: var(--header-footer-clr);
+    color: var(--font-clr-light);
+}
+
+/* -------------------------- HOME/SUBMIT CSS ---------------------- */
+/* -------------------------------------------------------------- */
+
+
+
+
+
+/* -------------------------- FOOTER CSS ------------------------ */
+/* -------------------------------------------------------------- */
+.footer {
+    background-color: var(--header-footer-clr);
+    color: var(--font-clr-light);
+    height: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* -------------------------- FOOTER CSS ------------------------ */
+/* -------------------------------------------------------------- */
