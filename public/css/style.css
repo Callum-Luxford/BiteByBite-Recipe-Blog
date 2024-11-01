@@ -127,6 +127,49 @@ svg {
 
 }
 
+/* ADDED BAKCGROUND STYLES - NOTE FOR IF ANYTHING GOES WRONG WITH LAYOUT - TO REMOVE */
+.video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.video-background video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.2;
+    /* Adjust as desired for visibility */
+}
+
+.video-background .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #eb85173d;
+    /* Orange with 40% opacity */
+    z-index: 1;
+    /* Above video, below content */
+}
+
+
+body,
+html {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    width: 100%;
+    min-height: 100vh;
+}
+
+/* ADDED BAKCGROUND STYLES - NOTE FOR IF ANYTHING GOES WRONG WITH LAYOUT - TO REMOVE */
+
 body {
     font-family: var(--ff-primary);
     font-size: var(--font-size-md);
@@ -136,20 +179,26 @@ body {
 .page__container {
     max-width: 1400px;
     margin: 0 auto;
-    padding: 0 15px;
-    margin-bottom: 4rem;
-    margin-top: 4rem;
+    padding: 0 20px;
+    /* margin-bottom: 4rem;
+    margin-top: 4rem; */
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    background: #f6f6f6;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 section {
     margin-top: 5rem;
 }
 
-.section__title {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 2rem;
+.page__title {
+    /* margin-bottom: 2rem; */
+}
+
+.title {
+    font-size: clamp(1.5rem, 1.212rem + 1.154vw, 2.25rem);
+    font-weight: 700;
 }
 
 .btn {
@@ -181,6 +230,12 @@ section {
     align-items: center;
     height: 4rem;
     padding: 0 10px;
+
+    /* FOR A FIXED HEADER */
+    /* ------------------ */
+    /* width: 100%;
+    position: fixed;
+    z-index: 10; */
 }
 
 .header__logo {
@@ -474,10 +529,25 @@ section {
     height: 330px;
 }
 
+.section__title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
 .section__title h2 {
     /* font-size: var(--font-size-5xl); */
     font-size: clamp(1.5rem, 1.212rem + 1.154vw, 2.25rem);
     font-weight: 700;
+}
+
+.latest__section .section__title a {
+    font-size: var(--font-size-md);
+}
+
+.latest__section .section__title a:hover {
+    text-decoration: underline;
 }
 
 .recipe__card__container {
@@ -495,6 +565,7 @@ section {
 
 .submit__container img {
     margin-bottom: 4rem;
+    justify-self: center;
 }
 
 .submit__container .section__content {
@@ -506,25 +577,55 @@ section {
     gap: 1rem;
 }
 
-.submit__container .section__content .section__title {
+.submit__container .section__content .submit__title {
     font-size: clamp(1.5rem, 1.212rem + 1.154vw, 2.25rem);
     font-weight: 700;
     margin-bottom: 0rem;
 }
 
-.submit__container .section__content p {
-    
-}
+.submit__container .section__content p {}
 
 .recipe__submit__btn:hover {
     background-color: var(--header-footer-clr);
     color: var(--font-clr-light);
 }
 
+.submit__container {
+    /* padding-bottom: 4rem; */
+}
+
 /* -------------------------- HOME/SUBMIT CSS ---------------------- */
 /* -------------------------------------------------------------- */
 
 
+/* -------------------------- CATEGORIES PAGE ---------------------- */
+/* ----------------------------------------------------------------- */
+.category__title {
+    margin-bottom: 1rem;
+}
+
+.category__nav ol {
+    display: flex;
+    margin-bottom: 1rem;
+}
+
+.breadcrumb-item:not(:last-of-type)::after {
+    content: '/';
+    color: var(--font-clr-secondary);
+    margin: 0 .5rem;
+}
+
+.category__nav ol li a {
+    color: var(--font-clr-primary);
+}
+.category__nav ol li a:hover {
+    text-decoration: underline;
+}
+.category__nav ol li:last-of-type {
+    color: grey;
+}
+/* -------------------------- CATEGORIES PAGE ---------------------- */
+/* ----------------------------------------------------------------- */
 
 
 

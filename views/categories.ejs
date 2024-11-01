@@ -1,0 +1,23 @@
+<h1 class="category__title page__title title">Categories</h1>
+
+<nav aria-label="breadcrumbs" class="category__nav">
+    <ol class="breadcrumbs">
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item--active" aria-current="page">Explore Categories</li>
+    </ol>
+</nav>
+
+<div class="category__container">
+<% if (categories !='' ) { %>
+    <% categories.forEach((category, index)=> { %>
+        <a href="/categories/<%- category.name %>" class="category__link">
+            <div class="category__image">
+                <img src="./img/<%- category.image %>" alt="<%- category.name %>" loading="lazy">
+            </div>
+            <h2>
+                <%- category.name %>
+            </h2>
+        </a>
+        <% }) %>
+    <% } %>
+</div>

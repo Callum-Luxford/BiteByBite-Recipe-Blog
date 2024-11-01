@@ -21,54 +21,27 @@
 <!-- HOME/CATEGORIES -->
 <div class="category__container">
 
-    <a href="#" class="category__link">
-        <div class="category__image">
-            <img src="./img/thai-food.jpg" alt="Thai Food" loading="lazy">
-        </div>
-        <h2>
-            Thai Food
-        </h2>
-    </a>
-    <a href="#" class="category__link">
-        <div class="category__image">
-            <img src="./img/thai-food.jpg" alt="Thai Food" loading="lazy">
-        </div>
-        <h2>
-            Thai Food
-        </h2>
-    </a>
-    <a href="#" class="category__link">
-        <div class="category__image">
-            <img src="./img/thai-food.jpg" alt="Thai Food" loading="lazy">
-        </div>
-        <h2>
-            Thai Food
-        </h2>
-    </a>
-    <a href="#" class="category__link">
-        <div class="category__image">
-            <img src="./img/thai-food.jpg" alt="Thai Food" loading="lazy">
-        </div>
-        <h2>
-            Thai Food
-        </h2>
-    </a>
-    <a href="#" class="category__link">
-        <div class="category__image">
-            <img src="./img/thai-food.jpg" alt="Thai Food" loading="lazy">
-        </div>
-        <h2>
-            Thai Food
-        </h2>
-    </a>
-    <a href="/categories" class="category__link">
-        <div class="category__image">
-            <img src="./img/view-all.jpg" alt="View All Categories" loading="lazy">
-        </div>
-        <h2>
-            View All
-        </h2>
-    </a>
+    <% if (categories !='' ) { %>
+        <% categories.forEach((category, index)=> { %>
+            <a href="/categories/<%- category.name %>" class="category__link">
+                <div class="category__image">
+                    <img src="./img/<%- category.image %>" alt="<%- category.name %>" loading="lazy">
+                </div>
+                <h2>
+                    <%- category.name %>
+                </h2>
+            </a>
+            <% }) %>
+                <% } %>
+
+                    <a href="/categories" class="category__link">
+                        <div class="category__image">
+                            <img src="./img/view-all.jpg" alt="View All Categories" loading="lazy">
+                        </div>
+                        <h2>
+                            View All
+                        </h2>
+                    </a>
 </div>
 <!-- END HOME/CATEGORIES -->
 
@@ -77,53 +50,88 @@
 <section class="latest__section">
 
     <div class="section__title">
-        <h2>Latest Recipes</h2>
+        <h2 class="title">Latest Recipes</h2>
         <a href="/explore-latest">View More</a>
     </div>
 
     <div class="recipe__card__container">
 
-        <a href="/recipe/#" class="category__link">
-            <div class="category__image category__image--large">
-                <img src="./img/chocolate-banoffe-whoopie-pies.jpg" alt="Chocolate Banoffe" loading="lazy">
-            </div>
-            <h2>
-                Chocolate Banoffe
-            </h2>
-        </a>
+        <% if (food !='' ) { %>
+            <% food.latest.forEach((recipe, index)=> { %>
 
-        <a href="/recipe/#" class="category__link">
-            <div class="category__image category__image--large">
-                <img src="./img/chocolate-banoffe-whoopie-pies.jpg" alt="Chocolate Banoffe" loading="lazy">
-            </div>
-            <h2>
-                Chocolate Banoffe
-            </h2>
-        </a>
-
-        <a href="/recipe/#" class="category__link">
-            <div class="category__image category__image--large">
-                <img src="./img/chocolate-banoffe-whoopie-pies.jpg" alt="Chocolate Banoffe" loading="lazy">
-            </div>
-            <h2>
-                Chocolate Banoffe
-            </h2>
-        </a>
-
-        <a href="/recipe/#" class="category__link">
-            <div class="category__image category__image--large">
-                <img src="./img/chocolate-banoffe-whoopie-pies.jpg" alt="Chocolate Banoffe" loading="lazy">
-            </div>
-            <h2>
-                Chocolate Banoffe
-            </h2>
-        </a>
+                <a href="/recipe/<%= recipe._id %>" class="category__link">
+                    <div class="category__image category__image--large">
+                        <img src="./uploads/<%= recipe.image %>" alt="<%= recipe.name %>" loading="lazy">
+                    </div>
+                    <h2>
+                        <%= recipe.name %>
+                    </h2>
+                </a>
+                <% }) %>
+                    <% } %>
 
     </div>
 
 </section>
-
 <!-- END HOME/LATEST -->
+
+<!-- HOME/THAI -->
+<section class="latest__section">
+
+    <div class="section__title">
+        <h2 class="title">Thai Recipes</h2>
+        <a href="/categories/Thai">View More</a>
+    </div>
+
+    <div class="recipe__card__container">
+
+        <% if (typeof food.thai !=='undefined' && food.thai.length> 0) { %>
+            <% food.thai.forEach((recipe, index)=> { %>
+
+                <a href="/recipe/<%= recipe._id %>" class="category__link">
+                    <div class="category__image category__image--large">
+                        <img src="./uploads/<%= recipe.image %>" alt="<%= recipe.name %>" loading="lazy">
+                    </div>
+                    <h2>
+                        <%= recipe.name %>
+                    </h2>
+                </a>
+                <% }) %>
+        <% } %>
+
+    </div>
+
+</section>
+<!-- END HOME/THAI -->
+
+<!-- HOME/AMERICAN -->
+<section class="latest__section">
+
+    <div class="section__title">
+        <h2 class="title">American Recipes</h2>
+        <a href="/categories/American">View More</a>
+    </div>
+
+    <div class="recipe__card__container">
+
+        <% if (typeof food.american !=='undefined' && food.american.length> 0) { %>
+            <% food.american.forEach((recipe, index)=> { %>
+
+                <a href="/recipe/<%= recipe._id %>" class="category__link">
+                    <div class="category__image category__image--large">
+                        <img src="./uploads/<%= recipe.image %>" alt="<%= recipe.name %>" loading="lazy">
+                    </div>
+                    <h2>
+                        <%= recipe.name %>
+                    </h2>
+                </a>
+                <% }) %>
+        <% } %>
+
+    </div>
+
+</section>
+<!-- END HOME/AMERICAN -->
 
 
 <!-- SUBMIT -->
@@ -131,7 +139,7 @@
 <section class="submit__container">
     <img src="/img/publish-recipe.png" alt="Publish your recipe for FREE today" loading="lazy">
     <div class="section__content">
-        <h1 class="section__title">Publish your recipe for FREE today</h1>
+        <h1 class="submit__title title">Publish your recipe for FREE today</h1>
         <p>Publish your recipe for others to see.</p>
 
         <a href="/submit-recipe" class="btn recipe__submit__btn">Submit Recipe</a>
