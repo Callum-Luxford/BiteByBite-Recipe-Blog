@@ -68,7 +68,9 @@
                     </h2>
                 </a>
                 <% }) %>
-                    <% } %>
+            <% } else { %>
+            <p>No items found.</p>
+        <% } %>
 
     </div>
 
@@ -97,7 +99,9 @@
                     </h2>
                 </a>
                 <% }) %>
-        <% } %>
+            <% } else { %>
+                <p>No items found.</p>
+            <% } %>
 
     </div>
 
@@ -126,12 +130,45 @@
                     </h2>
                 </a>
                 <% }) %>
+        <% } else { %>
+            <p>No items found.</p>
         <% } %>
 
     </div>
 
 </section>
 <!-- END HOME/AMERICAN -->
+
+<!-- HOME/CHINESE -->
+<section class="latest__section">
+
+    <div class="section__title">
+        <h2 class="title">Chinese Recipes</h2>
+        <a href="/categories/Chinese">View More</a>
+    </div>
+
+    <div class="recipe__card__container">
+
+        <% if (typeof food.chinese !=='undefined' && food.chinese.length> 0) { %>
+            <% food.chinese.forEach((recipe, index)=> { %>
+
+                <a href="/recipe/<%= recipe._id %>" class="category__link">
+                    <div class="category__image category__image--large">
+                        <img src="./uploads/<%= recipe.image %>" alt="<%= recipe.name %>" loading="lazy">
+                    </div>
+                    <h2>
+                        <%= recipe.name %>
+                    </h2>
+                </a>
+                <% }) %>
+        <% } else { %>
+            <p>No items found.</p>
+        <% } %>
+
+    </div>
+
+</section>
+<!-- END HOME/CHINESE -->
 
 
 <!-- SUBMIT -->

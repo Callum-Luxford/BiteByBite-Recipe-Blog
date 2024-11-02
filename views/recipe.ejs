@@ -1,0 +1,50 @@
+
+<h1 class="category__title page__title title">Recipe</h1>
+
+
+<% if (recipe !=null) { %>
+
+    <nav aria-label="breadcrumbs" class="category__nav">
+        <ol class="breadcrumbs">
+            <li class="breadcrumb-item"><a href="/">Home</a></li>
+            <li class="breadcrumb-item--active" aria-current="page"><%- recipe.name %></li>
+        </ol>
+    </nav>
+
+    <div class="recipe__container">
+
+        <div class="recipe__image">
+            <img src="/uploads/<%- recipe.image %>" alt="<%- recipe.name %>" loading="lazy">
+        </div>
+
+        <div class="recipe__content">
+
+            <div>
+                <h1 class="title recipe__title"><%- recipe.name %></h1>
+                <p class="recipe-cat-tag"><%- recipe.category %></p>
+            </div>
+            
+            <!-- <div style="white-space: pre-line;"></div> -->
+            <div class="recipe__instructions">
+                <h4>Cooking Instructions:</h4>
+                <p><%- recipe.description %></p>
+            </div>
+
+            <div class="recipe__ingredients">
+                <div>
+                    <h4>Ingredients:</h4>
+                    <ul>
+                        <% recipe.ingredients.forEach((ingredient, index)=> { %>
+                            <li>
+                                <%= ingredient %>
+                            </li>
+                        <% }) %>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <% } %>

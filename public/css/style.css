@@ -110,6 +110,11 @@ svg {
     --font-size-11xl: 5rem;
     --font-size-12xl: 6rem;
 
+    --font-clamp-md: clamp(0.75rem, 0.571rem + 0.893vw, 1rem);
+    --font-clamp-xl: clamp(1.125rem, 1.077rem + 0.192vw, 1.25rem);
+    --font-clamp-5xl: clamp(1.5rem, 1.212rem + 1.154vw, 2.25rem);
+    --font-clamp-7xl: clamp(2rem, 1.615rem + 1.538vw, 3rem);
+
     --font-clr-primary: #212121;
     --font-clr-secondary: #323232;
     --font-clr-light: #f6f6f6;
@@ -404,7 +409,7 @@ section {
 
 .hero__content h1 {
     /* font-size: var(--font-size-7xl); */
-    font-size: clamp(2rem, 1.615rem + 1.538vw, 3rem);
+    font-size: var(--font-clamp-7xl);
     font-weight: 800;
     color: var(--font-clr-primary);
     text-align: center;
@@ -413,7 +418,7 @@ section {
 
 .hero__content p {
     /* font-size: var(--font-size-xl); */
-    font-size: clamp(1.125rem, 1.077rem + 0.192vw, 1.25rem);
+    font-size: var(--font-clamp-xl);
     font-weight: 600;
     text-align: center;
     color: var(--font-clr-secondary);
@@ -537,8 +542,7 @@ section {
 }
 
 .section__title h2 {
-    /* font-size: var(--font-size-5xl); */
-    font-size: clamp(1.5rem, 1.212rem + 1.154vw, 2.25rem);
+    font-size: var(--font-clamp-5xl);
     font-weight: 700;
 }
 
@@ -578,7 +582,7 @@ section {
 }
 
 .submit__container .section__content .submit__title {
-    font-size: clamp(1.5rem, 1.212rem + 1.154vw, 2.25rem);
+    font-size: var(--font-clamp-5xl);
     font-weight: 700;
     margin-bottom: 0rem;
 }
@@ -618,16 +622,100 @@ section {
 .category__nav ol li a {
     color: var(--font-clr-primary);
 }
+
 .category__nav ol li a:hover {
     text-decoration: underline;
 }
+
 .category__nav ol li:last-of-type {
     color: grey;
 }
+
 /* -------------------------- CATEGORIES PAGE ---------------------- */
 /* ----------------------------------------------------------------- */
 
+/* -------------------------- RECIPE PAGE -------------------------- */
+/* ----------------------------------------------------------------- */
 
+.recipe__container {
+    display: grid;
+    justify-items: center;
+    text-align: center;
+    gap: 1rem;
+}
+
+.recipe__image {
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, .16);
+    overflow: hidden;
+    border-radius: var(--border-radius);
+}
+
+.recipe__image img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.recipe__content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.recipe__title {}
+
+.recipe-cat-tag {}
+
+.recipe__instructions {
+    display: flex;
+    flex-direction: column;
+    gap: .2rem;
+}
+
+.recipe__instructions h4 {
+    font-size: clamp(1.125rem, 0.981rem + 0.577vw, 1.5rem);
+    font-weight: 600;
+}
+
+.recipe__instructions p {
+    font-size: var(--font-clamp-md);
+    /* text-align: start; */
+}
+
+.recipe__ingredients {
+    display: flex;
+    flex-direction: column;
+    gap: .2rem;
+    width: 100%;
+}
+
+.recipe__ingredients h4 {
+    font-size: clamp(1.125rem, 0.981rem + 0.577vw, 1.5rem);
+    font-weight: 600;
+}
+
+.recipe__ingredients ul {}
+
+.recipe__ingredients ul li {
+    border-bottom: 1px solid rgb(211, 211, 211);
+    padding: .5rem 0;
+}
+
+@media (width > 768px) {
+    .recipe__container {
+        grid-template-columns: repeat(2, auto);
+        justify-items: center;
+        text-align: start;
+        gap: 2rem;
+    }
+
+    .recipe__image {
+        min-width: 300px;
+    }
+}
+
+/* -------------------------- RECIPE PAGE -------------------------- */
+/* ----------------------------------------------------------------- */
 
 /* -------------------------- FOOTER CSS ------------------------ */
 /* -------------------------------------------------------------- */

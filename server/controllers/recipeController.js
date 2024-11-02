@@ -13,7 +13,7 @@ exports.homePage = async (req, res) => {
     const thai = await Recipe.find({ category: "Thai" }).limit(6);
     const american = await Recipe.find({ category: "American" }).limit(6);
     const chinese = await Recipe.find({ category: "Chinese" }).limit(6);
-    
+
     const food = { latest, thai, american, chinese };
 
     res.render("homePage", {
@@ -35,6 +35,23 @@ exports.exploreCategories = async (req, res) => {
     res.render("categories", {
       title: "Categories",
       categories,
+    });
+  } catch (error) {
+    res.status(500).send({ message: error.message || "Error Occured" });
+  }
+};
+
+// GET /recipe/:id
+// Recipe
+exports.exploreRecipe = async (req, res) => {
+  try {
+    let recipeId = req.params.id;
+
+    const recipe = await Recipe.findById(recipeId);
+
+    res.render("recipe", {
+      title: "Recipe",
+      recipe,
     });
   } catch (error) {
     res.status(500).send({ message: error.message || "Error Occured" });
