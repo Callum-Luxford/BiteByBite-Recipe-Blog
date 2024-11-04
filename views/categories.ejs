@@ -3,16 +3,17 @@
 <nav aria-label="breadcrumbs" class="category__nav">
     <ol class="breadcrumbs">
         <li class="breadcrumb-item"><a href="/">Home</a></li>
-        <li class="breadcrumb-item--active" aria-current="page">Explore Categories</li>
+        <li class="breadcrumb-item"><a href="/categories">Categories</a></li>
+        <li class="breadcrumb-item--active" aria-current="page"><%-  %></li>
     </ol>
 </nav>
 
 <div class="category__container">
-<% if (categories !='' ) { %>
+<% if (typeof categories !== 'undefined' && categories.length > 0) { %>
     <% categories.forEach((category, index)=> { %>
         <a href="/categories/<%- category.name %>" class="category__link">
             <div class="category__image">
-                <img src="./img/<%- category.image %>" alt="<%- category.name %>" loading="lazy">
+                <img src="/img/<%- category.image %>" alt="<%- category.name %>" loading="lazy">
             </div>
             <h2>
                 <%- category.name %>
@@ -20,4 +21,24 @@
         </a>
         <% }) %>
     <% } %>
+</div>
+
+<div class="recipe__card__container">
+
+    <% if (typeof categoryById !=='undefined' && categoryById.length > 0) { %>
+        <% categoryById.forEach((recipe, index)=> { %>
+
+            <a href="/recipe/<%= recipe._id %>" class="category__link">
+                <div class="category__image category__image--large">
+                    <img src="/uploads/<%= recipe.image %>" alt="<%= recipe.name %>" loading="lazy">
+                </div>
+                <h2>
+                    <%= recipe.name %>
+                </h2>
+            </a>
+            <% }) %>
+                <% } else { %>
+                    <!-- <p>No items found.</p> -->
+                    <% } %>
+
 </div>

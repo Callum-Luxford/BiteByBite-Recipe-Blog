@@ -13,7 +13,7 @@
     </div>
 
     <div class="hero__image">
-        <img src="./img/HERO-IMAGE-RESIZE-2.png" alt="" class="hero-image">
+        <img src="/img/HERO-IMAGE-RESIZE-2.png" alt="" class="hero-image">
     </div>
 </div>
 <!-- END HOME -->
@@ -25,7 +25,7 @@
         <% categories.forEach((category, index)=> { %>
             <a href="/categories/<%- category.name %>" class="category__link">
                 <div class="category__image">
-                    <img src="./img/<%- category.image %>" alt="<%- category.name %>" loading="lazy">
+                    <img src="/img/<%- category.image %>" alt="<%- category.name %>" loading="lazy">
                 </div>
                 <h2>
                     <%- category.name %>
@@ -36,7 +36,7 @@
 
                     <a href="/categories" class="category__link">
                         <div class="category__image">
-                            <img src="./img/view-all.jpg" alt="View All Categories" loading="lazy">
+                            <img src="/img/view-all.jpg" alt="View All Categories" loading="lazy">
                         </div>
                         <h2>
                             View All
@@ -61,7 +61,7 @@
 
                 <a href="/recipe/<%= recipe._id %>" class="category__link">
                     <div class="category__image category__image--large">
-                        <img src="./uploads/<%= recipe.image %>" alt="<%= recipe.name %>" loading="lazy">
+                        <img src="/uploads/<%= recipe.image %>" alt="<%= recipe.name %>" loading="lazy">
                     </div>
                     <h2>
                         <%= recipe.name %>
@@ -92,7 +92,7 @@
 
                 <a href="/recipe/<%= recipe._id %>" class="category__link">
                     <div class="category__image category__image--large">
-                        <img src="./uploads/<%= recipe.image %>" alt="<%= recipe.name %>" loading="lazy">
+                        <img src="/uploads/<%= recipe.image %>" alt="<%= recipe.name %>" loading="lazy">
                     </div>
                     <h2>
                         <%= recipe.name %>
@@ -123,7 +123,7 @@
 
                 <a href="/recipe/<%= recipe._id %>" class="category__link">
                     <div class="category__image category__image--large">
-                        <img src="./uploads/<%= recipe.image %>" alt="<%= recipe.name %>" loading="lazy">
+                        <img src="/uploads/<%= recipe.image %>" alt="<%= recipe.name %>" loading="lazy">
                     </div>
                     <h2>
                         <%= recipe.name %>
@@ -154,7 +154,7 @@
 
                 <a href="/recipe/<%= recipe._id %>" class="category__link">
                     <div class="category__image category__image--large">
-                        <img src="./uploads/<%= recipe.image %>" alt="<%= recipe.name %>" loading="lazy">
+                        <img src="/uploads/<%= recipe.image %>" alt="<%= recipe.name %>" loading="lazy">
                     </div>
                     <h2>
                         <%= recipe.name %>
