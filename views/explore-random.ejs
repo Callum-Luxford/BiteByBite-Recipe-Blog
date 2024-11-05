@@ -1,8 +1,7 @@
+<h1 class="category__title page__title title">Random Recipe</h1>
 
-<h1 class="category__title page__title title">Recipe</h1>
 
-
-<% if (recipe !=null) { %>
+<% if (recipe !='' ) { %>
 
     <nav aria-label="breadcrumbs" class="category__nav">
         <ol class="breadcrumbs">
@@ -25,9 +24,9 @@
                 <div class="recipe-cat-tag-container">
                     <img src="/img/tag.png" alt="" class="recipe-cat-tag">
                     <p class="recipe-cat-tag-name"><%- recipe.category %></p>
-                </div>   
+                </div>
             </div>
-            
+
             <!-- <div style="white-space: pre-line;"></div> -->
             <div class="recipe__instructions">
                 <h4>Cooking Instructions:</h4>
@@ -42,7 +41,7 @@
                             <li>
                                 <%= ingredient %>
                             </li>
-                        <% }) %>
+                            <% }) %>
                     </ul>
                 </div>
             </div>

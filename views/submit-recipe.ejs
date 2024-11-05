@@ -1,0 +1,64 @@
+<div class="submit__page__title">
+    <h1 class="title">Submit Your Recipe</h1>
+    <p>Share your recipes with your friends and family! Fill in the form to get started.</p>
+</div>
+
+
+<div class="submit__form">
+
+    <form action="/submit-recipe" enctype="multipart/form-data" method="POST">
+
+        <div class="form-item-div">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" name="email" id="email" class="form-input">
+        </div>
+
+        <div class="form-item-div">
+            <label for="name" class="form-label">Recipe Name</label>
+            <input type="text" name="name" id="name" class="form-input">
+        </div>
+
+        <div class="form-item-div">
+            <label for="description" class="form-label">Description</label>
+            <textarea class="" name="description" id="description" cols="30" rows="4" class="form-input"></textarea>
+        </div>
+
+        <div class="form-item-div">
+            <label for="ingredients" class="form-label">Ingredients</label>
+            <small>Example: Ice</small>
+
+            <div class="ingredientList">
+                <div class="ingredientDiv">
+                    <input type="text" name="ingredients" class="form-input">
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <button type="button" class="btn ingredient__btn" id="addIngredientsBtn">+ Ingredient</button>
+        </div>
+
+        <div class="form-item-div">
+            <label for="category" class="form-label">Select</label>
+            <select name="category" id="">
+                <option selected value="">Select Category</option>
+                <option value="Thai">Thai</option>
+                <option value="American">American</option>
+                <option value="Mexican">Mexican</option>
+                <option value="Chinese">Chinese</option>
+                <option value="Indian">Indian</option>
+            </select>
+        </div>
+
+        <div class="form-item-div">
+            <label for="image" class="form-label">Recipe Image</label>
+            <input type="file" class="" name="image" accept="image/*" class="form-input">
+        </div>
+
+        <div>
+            <button type="submit" class="btn submit__btn">Submit Recipe</button>
+        </div>
+
+    </form>
+
+</div>

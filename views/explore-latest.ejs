@@ -1,0 +1,21 @@
+<h1 class="title page__title">Latest Recipes</h1>
+
+<div class="recipe__card__container">
+
+    <% if (typeof recipe !=='undefined' && recipe.length> 0) { %>
+        <% recipe.forEach((recipe, index)=> { %>
+
+            <a href="/recipe/<%= recipe._id %>" class="category__link">
+                <div class="category__image category__image--large">
+                    <img src="/uploads/<%= recipe.image %>" alt="<%= recipe.name %>" loading="lazy">
+                </div>
+                <h2>
+                    <%= recipe.name %>
+                </h2>
+            </a>
+            <% }) %>
+        <% } else { %>
+            <p>No items found.</p>
+    <% } %>
+
+</div>
