@@ -4,9 +4,22 @@
 </div>
 
 
+
 <div class="submit__form">
 
-    <form action="/submit-recipe" enctype="multipart/form-data" method="POST">
+        <% if(infoSubmitObj != '') { %>
+            <div class="alert__message-success">
+                <%= infoSubmitObj %>
+            </div>
+        <% } %>
+        
+        <% if(infoErrorsObj !='' ) { %>
+        <div class="alert__message-error">
+            <%= infoErrorsObj[0].message %>
+        </div>
+        <% } %>
+
+    <form action="/submit-recipe" id="submit-form" enctype="multipart/form-data" method="POST">
 
         <div class="form-item-div">
             <label for="email" class="form-label">Email</label>
@@ -15,12 +28,12 @@
 
         <div class="form-item-div">
             <label for="name" class="form-label">Recipe Name</label>
-            <input type="text" name="name" id="name" class="form-input">
+            <input type="text" name="name" id="name" class="form-input" required>
         </div>
 
         <div class="form-item-div">
             <label for="description" class="form-label">Description</label>
-            <textarea class="" name="description" id="description" cols="30" rows="4" class="form-input"></textarea>
+            <textarea class="" name="description" id="description" cols="30" rows="4" class="form-input" required></textarea>
         </div>
 
         <div class="form-item-div">
@@ -29,7 +42,7 @@
 
             <div class="ingredientList">
                 <div class="ingredientDiv">
-                    <input type="text" name="ingredients" class="form-input">
+                    <input type="text" name="ingredients" class="form-input" required>
                 </div>
             </div>
         </div>
@@ -40,7 +53,7 @@
 
         <div class="form-item-div">
             <label for="category" class="form-label">Select</label>
-            <select name="category" id="">
+            <select name="category" id="" required>
                 <option selected value="">Select Category</option>
                 <option value="Thai">Thai</option>
                 <option value="American">American</option>
@@ -52,11 +65,11 @@
 
         <div class="form-item-div">
             <label for="image" class="form-label">Recipe Image</label>
-            <input type="file" class="" name="image" accept="image/*" class="form-input">
+            <input type="file" class="" name="image" accept="image/*" class="form-input" required>
         </div>
 
         <div>
-            <button type="submit" class="btn submit__btn">Submit Recipe</button>
+            <button id="form-submit-btn" type="submit" class="btn submit__btn">Submit Recipe</button>
         </div>
 
     </form>

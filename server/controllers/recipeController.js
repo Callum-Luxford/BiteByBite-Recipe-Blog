@@ -1,5 +1,6 @@
 // MODULES FOR CONTROLLER
 require("../models/database");
+const { now } = require("mongoose");
 const Category = require("../models/Category");
 const Recipe = require("../models/Recipe");
 
@@ -129,21 +130,64 @@ exports.exploreRandom = async (req, res) => {
   }
 };
 
-
-
 // GET /submit-recipe
 // SUBMIT RECIPE
 exports.submitRecipe = async (req, res) => {
-  try {
-    
+  const infoErrorsObj = req.flash("infoErrors");
+  const infoSubmitObj = req.flash("infoSubmit");
 
+  try {
     res.render("submit-recipe", {
       title: "Submit Recipe",
+      infoErrorsObj,
+      infoSubmitObj,
     });
   } catch (error) {
     res.status(500).send({ message: error.message || "Error Occured" });
   }
 };
+
+// POST /submit-recipe
+// SUBMIT RECIPE
+exports.submitRecipeOnPost = async (req, res) => {
+  try {
+
+    let imageUpoadFile;
+    let uploadPath;
+    let newImageName;
+    if(!req.files || Object.keys(req.files).length === 0){
+      console.log('No Files were uploaded')
+    } else {
+      imageUpoadFile = req.files.image;
+      newImageName = Date.now() + imageUpoadFile.name;
+
+      uploadPath = require('path').resolve('./') + '/public/uploads/' + newImageName;
+
+      imageUpoadFile.mv(uploadPath, (err) => {
+        if (err) return res.status(500).send(err)
+      })
+    }
+
+    const newRecipe = new Recipe({
+      name: req.body.name,
+      description: req.body.description,
+      email: req.body.email,
+      ingredients: req.body.ingredients,
+      category: req.body.category,
+      image: newImageName,
+    });
+    await newRecipe.save();
+    req.flash("infoSubmit", "Recipe has been added.");
+    res.redirect("/submit-recipe");
+    setTimeout(() => {
+    }, 3000);
+  } catch (error) {
+    req.flash("infoErrors", error);
+    res.redirect("/submit-recipe");
+  }
+};
+
+
 
 // ----------------------- DUMMY DATA INSERT -----------------------
 // -----------------------------------------------------------------

@@ -130,6 +130,7 @@ svg {
 
     --max-width: 1000px;
     --gradient: ;
+    --box-shadow-light: 0px 3px 6px rgba(0, 0, 0, .16);
 
 }
 
@@ -385,11 +386,16 @@ section {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     /* padding-top: 4rem; */
-    gap: 1rem;
+    gap: 2rem;
+    margin-bottom: 5rem;
 }
 
 .hero__image {
-    justify-self: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    /* margin-top: 3rem; */
 }
 
 .hero__image img {
@@ -478,6 +484,16 @@ section {
     }
 }
 
+@media (min-width: 768px) and (max-width: 1000px) {
+    .hero__image {
+        min-width: 400px;
+    }
+
+    .home__container {
+        gap: 2rem;
+    }
+}
+
 /* -------------------------- HOME CSS ------------------------ */
 /* -------------------------------------------------------------- */
 
@@ -507,7 +523,7 @@ section {
     align-items: center;
     height: 125px;
     margin-bottom: 10px;
-    box-shadow: 0px 3px 6px rgba(0, 0, 0, .16);
+    box-shadow: var(--box-shadow-light);
     overflow: hidden;
     border-radius: var(--border-radius);
 }
@@ -644,10 +660,11 @@ section {
     justify-items: center;
     text-align: center;
     gap: 1rem;
+    /* overflow-y: auto; */
 }
 
 .recipe__image {
-    box-shadow: 0px 3px 6px rgba(0, 0, 0, .16);
+    box-shadow: var(--box-shadow-light);
     overflow: hidden;
     border-radius: var(--border-radius);
 }
@@ -714,14 +731,19 @@ section {
 
 @media (width > 768px) {
     .recipe__container {
-        grid-template-columns: repeat(2, auto);
+        grid-template-columns: repeat(auto-fit, minmax(200px, auto));
+        grid-auto-rows: max-content;
         justify-items: center;
         text-align: start;
         gap: 2rem;
     }
 
     .recipe__image {
-        min-width: 300px;
+        grid-row: 1;
+    }
+
+    .recipe__image img {
+        /* height: max-content; */
     }
 
     .recipe-cat-tag-container {
@@ -730,8 +752,20 @@ section {
         align-items: center;
         gap: .25rem;
     }
+
+    .recipe__content {
+        grid-row: 1/3;
+    }
 }
 
+/* TEMP CSS QUERY  --------------------------------------------------*/
+@media (min-width: 769px) and (max-width: 875px) {
+    .recipe__instructions p {
+        word-break: break-all;
+    }
+}
+
+/* TEMP CSS QUERY  --------------------------------------------------*/
 /* -------------------------- RECIPE PAGE -------------------------- */
 /* ----------------------------------------------------------------- */
 
@@ -787,6 +821,7 @@ textarea {
     border: 1px solid rgb(215, 215, 215);
     border-radius: 3px;
     width: 100%;
+    margin-bottom: .5rem;
 }
 
 .submit__form form select {
@@ -805,9 +840,40 @@ textarea {
     background-color: var(--font-clr-light);
     color: var(--font-clr-primary);
 }
+
 .submit__form form button:hover {
-    background-color:var(--header-footer-clr);
+    background-color: var(--header-footer-clr);
     color: var(--font-clr-light);
+}
+
+.alert__message-success {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #92d15b;
+    border-radius: 3px;
+    width: 100%;
+    height: 2rem;
+    padding: 1.4rem;
+    color: var(--font-clr-light);
+    font-weight: 600;
+    box-shadow: var(--box-shadow-light);
+    margin-bottom: 1rem;
+}
+
+.alert__message-error {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #d15b5b;
+    border-radius: 3px;
+    width: 100%;
+    height: 2rem;
+    padding: 1.4rem;
+    color: var(--font-clr-light);
+    font-weight: 600;
+    box-shadow: var(--box-shadow-light);
+    margin-bottom: 1rem;
 }
 
 /* -------------------------- SUBMIT RECIPE PAGE -------------------------- */
