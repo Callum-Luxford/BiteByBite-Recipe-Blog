@@ -21,7 +21,8 @@
     "express-session": "^1.18.1",
     "gitignore": "^0.7.0",
     "mongodb": "^6.10.0",
-    "mongoose": "^8.7.3"
+    "mongoose": "^8.7.3",
+    "scrollreveal": "^4.0.9"
   },
   "devDependencies": {
     "nodemon": "^3.1.7"

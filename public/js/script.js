@@ -31,4 +31,36 @@ randBtn.addEventListener("mouseover", () => {
 });
 // BUTTON
 
+// AUTO-TYPE EFFECT
+var typed = new Typed("#auto-type", {
+  strings: ["BiteByBite^4000"],
+  typeSpeed: 70,
+  loop: true,
+  loopCount: Infinity,
+  backSpeed: 70,
+  startDelay: 0,
+});
+// AUTO-TYPE EFFECT
+
+// SCROLL-REVEAL
+// // Scroll reveal animation control
+const sr = ScrollReveal({
+  origin: "top",
+  distance: "10px",
+  duration: 1000,
+  delay: 500,
+  reset: true,
+  startDelay: 1000,
+});
+
+// HOME REVEAL
+sr.reveal(`#home-reveal-h1`, { origin: "left", delay: 600});
+sr.reveal(`#home-reveal-p`, { origin: "left", delay: 700 });
+sr.reveal(`.hero__buttons`, { origin: "right", delay: 800});
+sr.reveal(`.hero__image`, { origin: "right", delay: 900});
+sr.reveal(`.category__container`, { origin: "bottom", delay: 1000, distance: '30px' });
+
+// ABOUT REVEAL
+
+// SCROLL-REVEAL
 

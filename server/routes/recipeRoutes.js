@@ -7,6 +7,8 @@ const router = express.Router();
 
 // APP ROUTES
 router.get("/", recipeController.homePage);
+router.get("/about", recipeController.aboutPage);
+router.get("/contact", recipeController.contactPage);
 router.get("/recipe/:id", recipeController.exploreRecipe);
 router.get("/categories", recipeController.exploreCategories);
 router.get("/categories/:id", recipeController.exploreCategoriesById);

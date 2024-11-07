@@ -128,6 +128,8 @@ svg {
     --header-footer-clr: #EB8317;
     /* --header-footer-clr: #859F3D; */
 
+    --icons-filter-clr: invert(76%) sepia(44%) saturate(6008%) hue-rotate(350deg) brightness(95%) contrast(95%);
+
     --max-width: 1000px;
     --gradient: ;
     --box-shadow-light: 0px 3px 6px rgba(0, 0, 0, .16);
@@ -223,6 +225,10 @@ section {
 .btn.effect {
     background-color: var(--header-footer-clr);
     color: #f6f6f6;
+}
+
+.span-color {
+    color: var(--header-footer-clr);
 }
 
 /* -------------------------- ROOT CSS ------------------------ */
@@ -333,6 +339,7 @@ section {
     transition: 0.3s;
     font-size: var(--font-size-lg);
     font-weight: 500;
+    z-index: 1;
 }
 
 .nav__links .nav__list.open {
@@ -423,6 +430,21 @@ section {
     text-align: center;
     margin-bottom: -1rem;
 }
+
+/* IF USING TYPE EFFECT ON HOME TITLE */
+.home-title {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+@media (width > 768px) {
+    .home-title {
+        display: flex;
+        flex-direction: column;
+        gap: .5rem;
+    }
+}
+/* IF USING TYPE EFFECT ON HOME TITLE */
 
 .hero__content p {
     /* font-size: var(--font-size-xl); */
@@ -879,6 +901,100 @@ textarea {
 /* -------------------------- SUBMIT RECIPE PAGE -------------------------- */
 /* ----------------------------------------------------------------- */
 
+/* -------------------------- ABOUT PAGE -------------------------- */
+/* ----------------------------------------------------------------- */
+.about__section {
+    margin-top: 3rem;
+    /* max-width: 1200px; */
+    justify-self: center;
+}
+
+.about__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+.about__container h1 {
+    font-size: var(--font-clamp-5xl);
+    font-weight: 700;
+    text-align: center;
+}
+
+.about__container p {
+    font-size: var(--font-clamp-lg);
+    font-weight: 500;
+    text-align: center;
+}
+
+.about__container span {
+    font-weight: 700;
+    color: var(--header-footer-clr);
+}
+
+/* -------------------------- ABOUT PAGE -------------------------- */
+/* ----------------------------------------------------------------- */
+
+/* -------------------------- CONTACT PAGE -------------------------- */
+/* ----------------------------------------------------------------- */
+.contact__section {
+    margin-top: 3rem;
+    /* max-width: 1200px; */
+    justify-self: center;
+}
+
+.contact__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: .5rem;
+}
+
+.contact__container h1 {
+    font-size: var(--font-clamp-5xl);
+    font-weight: 700;
+    text-align: center;
+}
+
+.contact__container p {
+    font-size: var(--font-clamp-lg);
+    font-weight: 500;
+    text-align: center;
+}
+
+.contact__container span {
+    font-weight: 700;
+    color: var(--header-footer-clr);
+}
+
+.contact__items__container {
+    margin-top: 1rem;
+}
+
+.contact__items__list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+.contact__items__list li img {
+    height: 40px;
+    border-radius: 5px;
+    filter: var(--icons-filter-clr);
+    transition: 0.3s;
+}
+
+.contact__items__list li img:hover {
+    transform: translateY(-10px);
+}
+
+/* -------------------------- CONTACT PAGE -------------------------- */
+/* ----------------------------------------------------------------- */
+
 
 /* -------------------------- FOOTER CSS ------------------------ */
 /* -------------------------------------------------------------- */
@@ -889,7 +1005,18 @@ textarea {
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
 }
 
 /* -------------------------- FOOTER CSS ------------------------ */
+/* -------------------------------------------------------------- */
+
+
+/* -------------------------- EXTRAS CSS ------------------------ */
+/* -------------------------------------------------------------- */
+.typed-cursor {
+    color: var(--header-footer-clr);
+}
+
+/* -------------------------- EXTRAS CSS ------------------------ */
 /* -------------------------------------------------------------- */

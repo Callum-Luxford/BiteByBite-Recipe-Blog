@@ -27,6 +27,22 @@ exports.homePage = async (req, res) => {
   }
 };
 
+// GET /about
+// ABOUT PAGE
+exports.aboutPage = async (req, res) => {
+  res.render("aboutPage", {
+    title: "About Page",
+  });
+};
+
+// GET /contact
+// CONACT PAGE
+exports.contactPage = async (req, res) => {
+  res.render("contactPage", {
+    title: "contact Page",
+  });
+};
+
 // GET /categories
 // Categories
 exports.exploreCategories = async (req, res) => {
@@ -151,21 +167,21 @@ exports.submitRecipe = async (req, res) => {
 // SUBMIT RECIPE
 exports.submitRecipeOnPost = async (req, res) => {
   try {
-
     let imageUpoadFile;
     let uploadPath;
     let newImageName;
-    if(!req.files || Object.keys(req.files).length === 0){
-      console.log('No Files were uploaded')
+    if (!req.files || Object.keys(req.files).length === 0) {
+      console.log("No Files were uploaded");
     } else {
       imageUpoadFile = req.files.image;
       newImageName = Date.now() + imageUpoadFile.name;
 
-      uploadPath = require('path').resolve('./') + '/public/uploads/' + newImageName;
+      uploadPath =
+        require("path").resolve("./") + "/public/uploads/" + newImageName;
 
       imageUpoadFile.mv(uploadPath, (err) => {
-        if (err) return res.status(500).send(err)
-      })
+        if (err) return res.status(500).send(err);
+      });
     }
 
     const newRecipe = new Recipe({
@@ -179,15 +195,12 @@ exports.submitRecipeOnPost = async (req, res) => {
     await newRecipe.save();
     req.flash("infoSubmit", "Recipe has been added.");
     res.redirect("/submit-recipe");
-    setTimeout(() => {
-    }, 3000);
+    setTimeout(() => {}, 3000);
   } catch (error) {
     req.flash("infoErrors", error);
     res.redirect("/submit-recipe");
   }
 };
-
-
 
 // ----------------------- DUMMY DATA INSERT -----------------------
 // -----------------------------------------------------------------
