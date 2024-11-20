@@ -208,7 +208,9 @@ exports.submitRecipeOnPost = async (req, res) => {
 // INSERT DUMMY CATEGORY DATA
 // let insertDummyCategoryData = async () => {
 //   try {
-//     await Category.insertMany();
+//     await Category.insertMany({
+//       
+//     });
 //   } catch (error) {
 //     console.log(error);
 //   }
