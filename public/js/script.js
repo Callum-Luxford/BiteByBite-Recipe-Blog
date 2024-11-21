@@ -58,7 +58,7 @@ sr.reveal(`#home-reveal-h1`, { origin: "left", delay: 600});
 sr.reveal(`#home-reveal-p`, { origin: "left", delay: 700 });
 sr.reveal(`.hero__buttons`, { origin: "right", delay: 800});
 sr.reveal(`.hero__image`, { origin: "right", delay: 900});
-sr.reveal(`.category__container`, { origin: "bottom", delay: 1000, distance: '30px' });
+// sr.reveal(`.category__container`, { origin: "bottom", delay: 1000, distance: '30px' });
 
 // ABOUT REVEAL
 
