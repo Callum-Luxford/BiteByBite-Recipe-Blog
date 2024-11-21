@@ -437,6 +437,7 @@ section {
     flex-direction: column;
     gap: 1rem;
 }
+
 @media (width > 768px) {
     .home-title {
         display: flex;
@@ -444,6 +445,7 @@ section {
         gap: .5rem;
     }
 }
+
 /* IF USING TYPE EFFECT ON HOME TITLE */
 
 .hero__content p {
@@ -804,7 +806,7 @@ section {
 }
 
 .submit__form {
-    display: grid;
+    display: flex;
     max-width: 1000px;
     width: 100%;
     justify-self: center;
