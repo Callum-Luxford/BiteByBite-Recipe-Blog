@@ -807,6 +807,7 @@ section {
 
 .submit__form {
     display: flex;
+    flex-direction: column;
     max-width: 1000px;
     width: 100%;
     justify-self: center;
